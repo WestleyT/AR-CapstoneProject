@@ -23,6 +23,8 @@ public class BattleState : State {
     public GameObject _attackCursor { get { return owner.attackCursor; } }
     public List<GameObject> _enemyUnitsList { get { return owner.enemyUnits; } }
     public GameObject[] _enemyUnitTypes { get { return owner.enemyUnitTypes; } }
+    public GameObject _roughTerrain { get { return owner.roughTerrain; } }
+    public GameObject Objective { get { return owner.objective; } }
 
     public Vector3 controllerPosition { get { return owner.controllerPosition; } }
     public Vector3 controllerForward { get { return owner.controllerForward; } }
@@ -88,7 +90,7 @@ public class BattleState : State {
 
     protected void EndUnitsTurn() {
         currentUnit.turnFinished = true;
-        currentUnit.gameObject.GetComponentInChildren<Renderer>().material = currentUnit.turnOverMaterial;
+        currentUnit.gameObject.GetComponent<HeroUnit>().background.color = Color.grey; //grey
         owner.currentUnit = null;
         owner.ChangeState<SelectUnitState>();
     }

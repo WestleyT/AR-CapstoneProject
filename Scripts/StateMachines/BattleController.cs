@@ -18,6 +18,8 @@ public class BattleController : StateMachine {
     public GameObject[] enemyUnitTypes;
     public GameObject moveCursor;
     public GameObject attackCursor;
+    public GameObject roughTerrain;
+    public GameObject objective;
 
     public Text TopHUDText;
     public Text BottomHUDText;

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f6873eb9c5d37946b71ed7a600a6fc7, type: 3}
-  m_Name: EberhartCrane
+  m_Name: LouieLavigne
   m_EditorClassIdentifier: 
-  heroName: Eberhart Crane
-  unitClass: Rifleman
-  maximumHP: 5
-  baseMovementSpeed: 5
-  attackPower: 5
-  weaponRange: 5
-  bodyModel: {fileID: 1741384768825934, guid: b5ba6c91897477241a8d8600ae7d397a, type: 2}
+  heroName: Louie Lavigne
+  unitClass: Shock Trooper
+  maximumHP: 7
+  baseMovementSpeed: 10
+  attackPower: 7
+  weaponRange: 2
+  bodyModel: {fileID: 1698268005568854, guid: f31dafbf13efc7f49860a9f1e8bc176c, type: 2}

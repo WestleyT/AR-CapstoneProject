@@ -23,6 +23,9 @@ public class EnemyData : ScriptableObject {
     [SerializeField]
     private float attackDamage;
 
+    [SerializeField]
+    private GameObject enemyBody;
+
     public string EnemyName { get { return enemyName; } }
 
     public string EnemySpecies { get { return enemySpecies; } }
@@ -34,4 +37,6 @@ public class EnemyData : ScriptableObject {
     public float AttackRange { get { return attackRange; } }
 
     public float AttackDamage { get { return attackDamage; } }
+
+    public GameObject EnemyBody { get { return enemyBody; } }
 }

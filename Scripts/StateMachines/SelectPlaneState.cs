@@ -6,10 +6,7 @@ using UnityEngine.XR.MagicLeap;
 public class SelectPlaneState : BattleState {
 
     //we will select the plane, and generate the game map here
-
     bool aPlaneIsSelected = false;
-
-    
 
     public override void Enter() {
         base.Enter();
@@ -23,8 +20,6 @@ public class SelectPlaneState : BattleState {
                 UpdateHUD("Press trigger to", "select blue surface.");
                 Renderer renderer = hit.transform.gameObject.GetComponent<Renderer>();
                 renderer.material.color = Color.blue;
-
-
             }
         }
     }
@@ -72,10 +67,6 @@ public class SelectPlaneState : BattleState {
 
         //Go To Spawn Unit State
         owner.ChangeState<SpawnUnitState>();
-    }
-
-    private void GenerateTerrainTypes() {
-        //do terrain types here
     }
 
     public override void Exit() {

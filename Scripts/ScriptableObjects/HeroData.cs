@@ -24,6 +24,9 @@ public class HeroData : ScriptableObject {
     [SerializeField]
     private float weaponRange;
 
+    [SerializeField]
+    private GameObject bodyModel;
+
     //so we can access this info from other scripts
 
     public string HeroName { get { return heroName; } }
@@ -37,4 +40,6 @@ public class HeroData : ScriptableObject {
     public float AttackPower { get { return attackPower; } }
 
     public float WeaponRange { get { return weaponRange; } }
+
+    public GameObject BodyModel { get { return bodyModel; } }
 }

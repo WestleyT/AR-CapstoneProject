@@ -38,7 +38,8 @@ public class MoveState : BattleState {
 
         if (hit.transform.gameObject != null) {
             if (hit.transform.gameObject.CompareTag("theMap")) {
-                StartCoroutine(currentUnit.Move(hit.point));
+                //StartCoroutine(currentUnit.Move(hit.point));
+                currentUnit.Move(hit.point);
             }
         }
     }

@@ -26,17 +26,18 @@ public class AttackState : BattleState {
         base.TriggerPressed(controller_id, triggerDownThreshold);
 
         if (hit.transform.gameObject.CompareTag("EnemyUnit")) { //&& within range
-            EnemyUnit enemyUnit = hit.transform.gameObject.GetComponent<EnemyUnit>();
+            currentUnit.Attack(hit.transform.gameObject);
+            //EnemyUnit enemyUnit = hit.transform.gameObject.GetComponent<EnemyUnit>();
 
-            enemyUnit.currentHP -= currentUnit.attackDamage;
+            //enemyUnit.currentHP -= currentUnit.attackDamage;
 
-            //kill enemy if hp is below zero 
-            if (enemyUnit.currentHP <= 0) {
-                //update list to reflect killed enemy being gone
-                _enemyUnitsList.Remove(enemyUnit.gameObject);
+            ////kill enemy if hp is below zero 
+            //if (enemyUnit.currentHP <= 0) {
+            //    //update list to reflect killed enemy being gone
+            //    _enemyUnitsList.Remove(enemyUnit.gameObject);
 
-                Destroy(enemyUnit.gameObject); //add death animation later
-            }
+            //    Destroy(enemyUnit.gameObject); //add death animation later       ---MOVE ALL THIS TO ENEMY UNIT CLASS---
+            //}
 
             EndUnitsTurn();
         }

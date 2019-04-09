@@ -10,6 +10,7 @@ public class SelectUnitState : BattleState {
     public override void Enter() {
         base.Enter();
         CheckAndChangeState();
+        Debug.Log("IN unit select state");
     }
 
     public override void Exit() {
@@ -29,14 +30,7 @@ public class SelectUnitState : BattleState {
 
             //change unit's color if being pointed at 
             if (hit.transform.gameObject.CompareTag("HeroUnit")) {
-                Renderer rend = hit.transform.gameObject.GetComponentInChildren<Renderer>();
-                rend.material.color = Color.cyan;
-            } else {
-                for (int i = 0; i < _heroUnits.Length; ++i) {
-                    if (_heroUnits[i].GetComponent<HeroUnit>().turnFinished != true) {
-                        _heroUnits[i].GetComponentInChildren<Renderer>().material = _heroUnits[i].GetComponent<HeroUnit>().baseMaterial;
-                    }
-                }
+                hit.transform.gameObject.GetComponent<HeroUnit>().beingLookedAt = true;
             }
         }
     }
@@ -46,6 +40,7 @@ public class SelectUnitState : BattleState {
 
         if(hit.transform.gameObject.CompareTag("HeroUnit") && hit.transform.gameObject.GetComponent<HeroUnit>().turnFinished == false) {
             owner.currentUnit = hit.transform.gameObject.GetComponent<HeroUnit>();
+            currentUnit.isCurrentUnit = true;
         }
     }
 

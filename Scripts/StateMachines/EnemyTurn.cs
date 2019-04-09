@@ -31,9 +31,9 @@ public class EnemyTurn : BattleState {
         for (int i = 0; i < _heroUnits.Length; i++) {
             _heroUnits[i].GetComponent<HeroUnit>().hasMoved = false;
             _heroUnits[i].GetComponent<HeroUnit>().turnFinished = false;
-            _heroUnits[i].GetComponentInChildren<Renderer>().material = _heroUnits[i].GetComponent<HeroUnit>().baseMaterial;
+            _heroUnits[i].GetComponent<HeroUnit>().beingLookedAt = false;
+            _heroUnits[i].GetComponent<HeroUnit>().isCurrentUnit = false;
         }
-
         owner.ChangeState<SelectUnitState>();
     }
 }

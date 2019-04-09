@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f6873eb9c5d37946b71ed7a600a6fc7, type: 3}
-  m_Name: EberhartCrane
+  m_Name: OttoSchmidt
   m_EditorClassIdentifier: 
-  heroName: Eberhart Crane
-  unitClass: Rifleman
+  heroName: Otto Schmidt
+  unitClass: Grenadier
   maximumHP: 5
-  baseMovementSpeed: 5
-  attackPower: 5
-  weaponRange: 5
-  bodyModel: {fileID: 1741384768825934, guid: b5ba6c91897477241a8d8600ae7d397a, type: 2}
+  baseMovementSpeed: 6
+  attackPower: 3
+  weaponRange: 4
+  bodyModel: {fileID: 1608857160635366, guid: 3c043bd4b5ab8eb4f9a60279f07b2e6a, type: 2}

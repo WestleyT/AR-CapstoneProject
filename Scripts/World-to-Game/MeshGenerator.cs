@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(MeshFilter))]
 public class MeshGenerator : MonoBehaviour {
+
+    [SerializeField]
+    GameObject roughTerrain;
+
+    public Matrix4x4 mapPointMatrix;
 
     Mesh mesh;
 
@@ -12,6 +18,7 @@ public class MeshGenerator : MonoBehaviour {
 
     public int squareMeshVerticeBaseSize = 20;
 
+    public int frequencyOfRoughTerrain = 75; //a number between 1-100. The closer to 100, the less frequent the rough terrain
     public bool meshingDone = false;
 
     private void Start() {
@@ -59,6 +66,13 @@ public class MeshGenerator : MonoBehaviour {
 
         UpdateMesh();
         gameObject.AddComponent<MeshCollider>();
+        BakeNavMesh();
+
+        //set the vertices to matrix points for spawning, etc.
+        mapPointMatrix = transform.localToWorldMatrix;
+
+        GenerateTerrainFeatures();
+        
         meshingDone = true;
     }
 
@@ -71,5 +85,25 @@ public class MeshGenerator : MonoBehaviour {
 
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
+
+        
+    }
+
+    private void GenerateTerrainFeatures() {
+        //here we will add difficult or impassible terrain
+        for (int i = 0; i < mesh.vertices.Length; ++i) {
+            int randomnum = Random.Range(0, 100);
+            if (randomnum > frequencyOfRoughTerrain) {
+                //Matrix4x4 matrix = transform.localToWorldMatrix;
+                Instantiate(roughTerrain, mapPointMatrix.MultiplyPoint3x4(mesh.vertices[i]), roughTerrain.transform.rotation, transform);
+            }
+        }
+    }
+
+    private void BakeNavMesh() {
+        //create the nav mesh
+        NavMeshSurface surface = GetComponentInParent<NavMeshSurface>();
+        //NavMeshSurface surface = GetComponent<NavMeshSurface>();
+        surface.BuildNavMesh();
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   baseMovementSpeed: 4
   attackPower: 4
   weaponRange: 4
+  bodyModel: {fileID: 1967742743727272, guid: aa0e197fa8f19fa46a9d2bbe9fefd67c, type: 2}

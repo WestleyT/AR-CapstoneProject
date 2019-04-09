@@ -17,3 +17,4 @@ MonoBehaviour:
   baseMoveSpeed: 4
   attackRange: 0.5
   attackDamage: 2
+  enemyBody: {fileID: 1994668827575250, guid: f4417be3e8e667b41847db36a2a3305b, type: 2}
